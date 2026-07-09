@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>支援情報モニター｜補助金・助成金・融資</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#17425F">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="新着補助金">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#F4F6F8; --panel:#FFFFFF; --ink:#17242F; --sub:#63707C; --line:#E1E7EC;
+    --navy:#17425F; --warn:#C7391B; --caution:#B07C10; --ok:#1E7A4C;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--ink); font-family:"Noto Sans JP",sans-serif; line-height:1.6; }
+
+  .topbar { background:var(--navy); color:#fff; padding:14px 20px; }
+  .topbar-inner { max-width:1080px; margin:0 auto; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .logo { font-weight:900; font-size:1.02rem; letter-spacing:.04em; }
+  .logo::before { content:"●"; color:#5FD08A; margin-right:8px; font-size:.7rem; vertical-align:2px; }
+  .sync { margin-left:auto; font-family:"IBM Plex Mono",monospace; font-size:.72rem; opacity:.85; }
+
+  main { max-width:1080px; margin:0 auto; padding:20px 16px 60px; }
+
+  .kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:10px; }
+  .kpi { background:var(--panel); border:1px solid var(--line); border-radius:10px;
+         padding:12px 14px; border-top:4px solid var(--rc,var(--navy)); cursor:pointer; user-select:none; }
+  .kpi.active { outline:2px solid var(--rc,var(--navy)); }
+  .kpi .label { font-size:.74rem; font-weight:700; color:var(--sub); }
+  .kpi .num { font-family:"IBM Plex Mono",monospace; font-size:1.7rem; font-weight:600; line-height:1.2; }
+  .kpi .num small { font-size:.72rem; font-family:"Noto Sans JP"; color:var(--sub); font-weight:500; }
+
+  .panel { background:var(--panel); border:1px solid var(--line); border-radius:12px; margin-top:16px; overflow:hidden; }
+  .panel-head { display:flex; align-items:center; gap:10px; padding:12px 16px; border-bottom:1px solid var(--line); flex-wrap:wrap; }
+  .panel-head h2 { font-size:.95rem; font-weight:700; }
+  .badge-new { background:var(--warn); color:#fff; font-size:.7rem; font-weight:700;
+               border-radius:999px; padding:1px 10px; }
+  .search { margin-left:auto; border:1px solid var(--line); border-radius:8px; padding:5px 10px;
+            font-size:.8rem; font-family:inherit; width:190px; }
+
+  table { width:100%; border-collapse:collapse; font-size:.84rem; }
+  thead th { text-align:left; font-size:.7rem; color:var(--sub); font-weight:700;
+             padding:8px 12px; border-bottom:1px solid var(--line); background:#FAFBFC; white-space:nowrap; }
+  tbody td { padding:12px; border-bottom:1px solid var(--line); vertical-align:top; }
+  tbody tr:last-child td { border-bottom:none; }
+  tbody tr:hover { background:#F6FAFD; }
+  .r-tag { display:inline-block; font-size:.72rem; font-weight:700; color:#fff;
+           background:var(--rc,var(--navy)); border-radius:4px; padding:1px 8px; white-space:nowrap; }
+  .k-tag { display:inline-block; font-size:.72rem; font-weight:700; color:var(--sub);
+           background:#EEF2F5; border-radius:4px; padding:1px 8px; white-space:nowrap; }
+  .t-title { font-weight:700; }
+  .t-title a { color:var(--ink); text-decoration:none; }
+  .t-title a:hover { color:var(--navy); text-decoration:underline; }
+  .t-org { display:block; font-size:.74rem; color:var(--sub); font-weight:400; margin-top:2px; }
+  .mini-src { font-size:.72rem; font-weight:700; color:var(--navy) !important; text-decoration:none;
+              border:1px solid var(--line); border-radius:4px; padding:0 6px; white-space:nowrap; }
+  .mini-src:hover { background:#EDF3F8; }
+
+  .dcell { white-space:nowrap; }
+  .dl { font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:.9rem; display:block; }
+  .dl.urgent { color:var(--warn); }
+  .dl.soon { color:var(--caution); }
+  .dl.safe { color:var(--ok); }
+  .dl.none { color:var(--sub); font-family:"Noto Sans JP"; font-size:.8rem; }
+  .dl-date { display:block; font-size:.7rem; color:var(--sub); }
+
+  .day-block summary { cursor:pointer; padding:12px 16px; font-weight:700; font-size:.9rem; list-style:none;
+                       display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--line); }
+  .day-block summary::before { content:"▸"; color:var(--navy); transition:transform .15s; }
+  .day-block[open] summary::before { transform:rotate(90deg); }
+  .day-count { font-size:.72rem; font-weight:700; color:var(--sub); background:#EEF2F5;
+               border-radius:999px; padding:1px 10px; }
+
+  .empty { padding:26px; text-align:center; color:var(--sub); font-size:.9rem; }
+  footer { max-width:1080px; margin:0 auto; padding:14px 16px 40px; font-size:.72rem; color:var(--sub); }
+  footer a { color:var(--sub); }
+
+  @media (max-width:640px) {
+    thead { display:none; }
+    tbody td { display:block; border-bottom:none; padding:3px 14px; }
+    tbody tr { display:block; border-bottom:1px solid var(--line); padding:9px 0; }
+    tbody tr:hover { background:none; }
+    .search { width:100%; margin-left:0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">支援情報モニター｜補助金・助成金・融資</div>
+    <div class="sync">LAST SYNC 2026-07-09 08:59 JST</div>
+  </div>
+</header>
+
+<main>
+  <div class="kpis" id="kpis">
+    <div class="kpi active" data-filter="all" style="--rc:var(--ink)">
+      <div class="label">本日の新着 7/9（木）</div>
+      <div class="num">5<small> 件</small></div>
+    </div>
+    <div class="kpi" data-filter="全国" style="--rc:#17425F">
+              <div class="label">全国</div><div class="num">4</div></div><div class="kpi" data-filter="愛知県" style="--rc:#B4452C">
+              <div class="label">愛知</div><div class="num">1</div></div><div class="kpi" data-filter="岐阜県" style="--rc:#4A6B3A">
+              <div class="label">岐阜</div><div class="num">0</div></div><div class="kpi" data-filter="静岡県" style="--rc:#2E6E8E">
+              <div class="label">静岡</div><div class="num">0</div></div><div class="kpi" data-filter="三重県" style="--rc:#7A5C99">
+              <div class="label">三重</div><div class="num">0</div></div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head">
+      <h2>本日の新着トピック</h2><span class="badge-new">NEW 5</span>
+      <input class="search" id="searchBox" type="search" placeholder="キーワード検索…">
+    </div>
+    
+    <table>
+      <thead><tr><th>地域</th><th>種別</th><th>案件名</th><th>締切まで</th></tr></thead>
+      <tbody id="todayBody">
+        <tr data-region="全国">
+          <td><span class="r-tag" style="--rc:#17425F">全国</span></td>
+          <td><span class="k-tag" style="background:#F3EDE2; color:#6B5233;">融資・貸付</span></td>
+          <td class="t-title"><a href="articles/186937.html">融資・貸付 ：「セーフティネット貸付」</a>
+            <span class="t-org">株式会社日本政策金融公庫・沖縄振興開発金融公庫｜一時的に資金繰りに支障をきたしているが、中長期的には回復が見込まれる中小企業・小規模事業者の皆様は融資を受けることができ…　<a class="mini-src" href="https://www.chusho.meti.go.jp/pamflet/g_book/2026/download/2026gbookall.pdf#page=232" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell"><span class="dl none">—</span><span class="dl-date">期日は詳細参照</span></td>
+        </tr>
+
+        <tr data-region="全国">
+          <td><span class="r-tag" style="--rc:#17425F">全国</span></td>
+          <td><span class="k-tag" style="background:#F3EDE2; color:#6B5233;">融資・貸付</span></td>
+          <td class="t-title"><a href="articles/186932.html">融資・貸付 ：「令和6年能登半島地震特別貸付」</a>
+            <span class="t-org">株式会社日本政策金融公庫・沖縄振興開発金融公庫｜令和6年能登半島地震等で被害を受けた中小企業者や、地震の影響により業況が悪化している中小企業者の皆様に対して、別枠で融資…　<a class="mini-src" href="https://www.chusho.meti.go.jp/pamflet/g_book/2026/download/2026gbookall.pdf#page=230" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell"><span class="dl none">—</span><span class="dl-date">期日は詳細参照</span></td>
+        </tr>
+
+        <tr data-region="全国">
+          <td><span class="r-tag" style="--rc:#17425F">全国</span></td>
+          <td><span class="k-tag" style="background:#F3EDE2; color:#6B5233;">融資・貸付</span></td>
+          <td class="t-title"><a href="articles/186933.html">融資・貸付：「高度化事業（災害対策）」</a>
+            <span class="t-org">独立行政法人 中小企業基盤整備機構｜東日本大震災、令和3年福島県沖地震、令和4年福島県沖地震で被災した中小企業等のグループ等が施設・設備の復旧・整備に取り組…　<a class="mini-src" href="https://www.chusho.meti.go.jp/pamflet/g_book/2026/download/2026gbookall.pdf#page=231" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell"><span class="dl none">—</span><span class="dl-date">期日は詳細参照</span></td>
+        </tr>
+
+        <tr data-region="全国">
+          <td><span class="r-tag" style="--rc:#17425F">全国</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/186924.html">補助金・助成金：「令和8年度山岳等受入環境改善等事業費補助金の二次公募について」</a>
+            <span class="t-org">環境省｜環境省では、令和8年度の国際観光旅客税を財源とする「山岳等受入環境改善等事業費補助金」の公募を実施しており、二次公募を開…　<a class="mini-src" href="https://www.env.go.jp/press/press_05264.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="公募期間：令和8年7月7日（火）～同年10月30日（金）"><span class="dl safe">残り 113日</span><span class="dl-date">R8.7.7 〜 R8.10.30</span></td>
+        </tr>
+
+        <tr data-region="愛知県">
+          <td><span class="r-tag" style="--rc:#B4452C">愛知</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/186930.html">【愛知県】補助金・助成金：「令和9年度介護施設内保育所運営費補助金の活用意向等調べ」</a>
+            <span class="t-org">愛知県｜令和9年度介護施設内保育所運営費補助金の活用意向がある施設については調査表を提出先まで送付してください。また、今後の制度…　<a class="mini-src" href="https://www.pref.aichi.jp/soshiki/korei/hoikujoshirabe.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="提出期限：令和8年7月21日（火曜日）正午まで"><span class="dl urgent">残り 12日</span><span class="dl-date">〜 R8.7.21</span></td>
+        </tr></tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head"><h2>過去の新着（直近14日）</h2></div>
+    <p class="empty">まだ履歴がありません。</p>
+  </div>
+</main>
+
+<footer>
+  情報元：<a href="https://j-net21.smrj.go.jp/snavi2/index.html" target="_blank" rel="noopener">J-Net21 支援情報ヘッドライン</a>（独立行政法人 中小企業基盤整備機構）｜毎日 午前2時 自動更新｜残り日数は説明文の期日記載から自動計算した参考値です。正確な締切は必ず各制度の公式ページでご確認ください。
+</footer>
+
+<script>
+  const kpis = document.getElementById('kpis');
+  const searchBox = document.getElementById('searchBox');
+  const rows = () => document.querySelectorAll('#todayBody tr');
+  let regionFilter = 'all';
+
+  function apply() {
+    const q = (searchBox?.value || '').trim().toLowerCase();
+    rows().forEach(tr => {
+      const okRegion = regionFilter === 'all' || tr.dataset.region === regionFilter;
+      const okText = !q || tr.textContent.toLowerCase().includes(q);
+      tr.style.display = (okRegion && okText) ? '' : 'none';
+    });
+  }
+  if (kpis) kpis.addEventListener('click', e => {
+    const k = e.target.closest('.kpi');
+    if (!k) return;
+    kpis.querySelectorAll('.kpi').forEach(x => x.classList.remove('active'));
+    k.classList.add('active');
+    regionFilter = k.dataset.filter;
+    apply();
+  });
+  if (searchBox) searchBox.addEventListener('input', apply);
+
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+</script>
+</body>
+</html>

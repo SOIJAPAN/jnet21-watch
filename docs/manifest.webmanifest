@@ -1,0 +1,22 @@
+{
+ "name": "支援情報モニター（補助金・助成金・融資）",
+ "short_name": "新着補助金",
+ "description": "全国・愛知・岐阜・静岡・三重の補助金・助成金・融資の新着情報を毎日チェック",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "background_color": "#F4F6F8",
+ "theme_color": "#17425F",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}
