@@ -3,7 +3,7 @@ name: 新着支援情報の自動更新
 on:
   schedule:
     # 毎日 1:00 UTC = 日本時間 午前10:00
-    - cron: '0 1 * * *''
+    - cron: '0 1 * * *'
   workflow_dispatch: {}   # 手動実行も可能（Actionsタブ → Run workflow）
 
 permissions:
