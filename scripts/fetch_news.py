@@ -481,6 +481,13 @@ def build_page(archive: dict, now: datetime) -> str:
   </div>
 </header>
 
+<div id="staleBanner" style="display:none; background:#C7391B; color:#fff; text-align:center;
+     font-size:.85rem; font-weight:700; padding:9px 14px;">
+  ⚠️ 最終更新から<span id="staleHours"></span>時間以上経過しています。自動更新が止まっている可能性があります。
+  <a href="https://github.com/SOIJAPAN/jnet21-watch/actions" target="_blank" rel="noopener"
+     style="color:#fff;">実行状況を確認 ↗</a>
+</div>
+
 <main>
   <div class="kpis" id="kpis">
     <div class="kpi active" data-filter="all" style="--rc:var(--ink)">
@@ -533,6 +540,16 @@ def build_page(archive: dict, now: datetime) -> str:
   if (searchBox) searchBox.addEventListener('input', apply);
 
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+
+  // 死活監視：最終更新から27時間を超えていたら警告バナーを表示
+  (function() {{
+    const lastSync = new Date('{now.strftime("%Y-%m-%dT%H:%M:%S")}+09:00');
+    const hours = (Date.now() - lastSync.getTime()) / 3600000;
+    if (hours > 27) {{
+      document.getElementById('staleHours').textContent = Math.floor(hours);
+      document.getElementById('staleBanner').style.display = 'block';
+    }}
+  }})();
 </script>
 </body>
 </html>

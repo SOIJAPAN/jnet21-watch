@@ -4,6 +4,8 @@ on:
   schedule:
     # 毎日 1:00 UTC = 日本時間 午前10:00
     - cron: '0 1 * * *'
+    # 予備実行: 毎日 4:00 UTC = 日本時間 午後1:00（朝の実行が遅延・失敗した場合の保険）
+    - cron: '0 4 * * *'
   workflow_dispatch: {}   # 手動実行も可能（Actionsタブ → Run workflow）
 
 permissions:
@@ -23,6 +25,11 @@ jobs:
 
       - name: 新着情報を取得してページを生成
         run: python scripts/fetch_news.py
+
+      - name: Notionへ新着を同期
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: python scripts/notion_sync.py
 
       - name: 変更をコミット
         run: |
