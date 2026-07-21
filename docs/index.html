@@ -96,7 +96,7 @@
 <header class="topbar">
   <div class="topbar-inner">
     <div class="logo">支援情報モニター｜補助金・助成金・融資</div>
-    <div class="sync">LAST SYNC 2026-07-21 19:08 JST</div>
+    <div class="sync">LAST SYNC 2026-07-21 20:21 JST</div>
   </div>
 </header>
 
@@ -385,7 +385,7 @@
 
   // 死活監視：最終更新から27時間を超えていたら警告バナーを表示
   (function() {
-    const lastSync = new Date('2026-07-21T19:08:10+09:00');
+    const lastSync = new Date('2026-07-21T20:21:33+09:00');
     const hours = (Date.now() - lastSync.getTime()) / 3600000;
     if (hours > 27) {
       document.getElementById('staleHours').textContent = Math.floor(hours);
