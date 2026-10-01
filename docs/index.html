@@ -96,7 +96,7 @@
 <header class="topbar">
   <div class="topbar-inner">
     <div class="logo">支援情報モニター｜補助金・助成金・融資</div>
-    <div class="sync">LAST SYNC 2026-10-01 15:41 JST</div>
+    <div class="sync">LAST SYNC 2026-10-01 19:38 JST</div>
   </div>
 </header>
 
@@ -111,22 +111,41 @@
   <div class="kpis" id="kpis">
     <div class="kpi active" data-filter="all" style="--rc:var(--ink)">
       <div class="label">本日の新着 10/1（木）</div>
-      <div class="num">0<small> 件</small></div>
+      <div class="num">2<small> 件</small></div>
     </div>
     <div class="kpi" data-filter="全国" style="--rc:#17425F">
-              <div class="label">全国</div><div class="num">0</div></div><div class="kpi" data-filter="愛知県" style="--rc:#B4452C">
+              <div class="label">全国</div><div class="num">1</div></div><div class="kpi" data-filter="愛知県" style="--rc:#B4452C">
               <div class="label">愛知</div><div class="num">0</div></div><div class="kpi" data-filter="岐阜県" style="--rc:#4A6B3A">
               <div class="label">岐阜</div><div class="num">0</div></div><div class="kpi" data-filter="静岡県" style="--rc:#2E6E8E">
               <div class="label">静岡</div><div class="num">0</div></div><div class="kpi" data-filter="三重県" style="--rc:#7A5C99">
-              <div class="label">三重</div><div class="num">0</div></div>
+              <div class="label">三重</div><div class="num">1</div></div>
   </div>
 
   <div class="panel">
     <div class="panel-head">
-      <h2>本日の新着トピック</h2><span class="badge-new">NEW 0</span>
+      <h2>本日の新着トピック</h2><span class="badge-new">NEW 2</span>
       <input class="search" id="searchBox" type="search" placeholder="キーワード検索…">
     </div>
-    <p class="empty">本日の対象地域の新着はありませんでした。</p>
+    
+    <table>
+      <thead><tr><th>地域</th><th>種別</th><th>案件名</th><th>締切まで</th></tr></thead>
+      <tbody id="todayBody">
+        <tr data-region="全国">
+          <td><span class="r-tag" style="--rc:#17425F">全国</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/192949.html">補助金・助成金：「令和8年度医薬品安定供給支援補助金「医薬品卸業者に対する継続的な安定供給支援事業」に係る実施事業者の2次公募について」</a>
+            <span class="t-org">厚生労働省｜昨今の流通コストの上昇や供給の不安定等により、医薬品卸売販売業者を取り巻く環境は厳しさを増しています。このような状況にお…　<a class="mini-src" href="https://www.mhlw.go.jp/stf/newpage_76427.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="公募期間：令和8年9月29日（火）から令和8年10月23日（金）（必着）"><span class="dl soon">残り 22日</span><span class="dl-date">R8.9.29 〜 R8.10.23</span></td>
+        </tr>
+
+        <tr data-region="三重県">
+          <td><span class="r-tag" style="--rc:#7A5C99">三重</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/193109.html">【鈴鹿市】補助金・助成金：「第4弾　鈴鹿市物価高騰対策ものづくり企業等支援事業」</a>
+            <span class="t-org">鈴鹿市｜原油価格や電気・ガス料金などの物価高騰の影響を受けた市内ものづくり企業等に対し、事業継続に必要なエネルギー関連経費の一部…　<a class="mini-src" href="https://www.city.suzuka.lg.jp/sangyo/shien/1014883/1010792.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="受付期間：令和8年10月6日（火曜日）〜令和8年12月28日（月曜日）17時（郵送の場合は当日消印有効）"><span class="dl safe">残り 88日</span><span class="dl-date">R8.10.6 〜 R8.12.28</span></td>
+        </tr></tbody>
+    </table>
   </div>
 
   <div class="panel">
@@ -350,7 +369,7 @@
 
   // 死活監視：最終更新から27時間を超えていたら警告バナーを表示
   (function() {
-    const lastSync = new Date('2026-10-01T15:41:36+09:00');
+    const lastSync = new Date('2026-10-01T19:38:51+09:00');
     const hours = (Date.now() - lastSync.getTime()) / 3600000;
     if (hours > 27) {
       document.getElementById('staleHours').textContent = Math.floor(hours);
