@@ -96,7 +96,7 @@
 <header class="topbar">
   <div class="topbar-inner">
     <div class="logo">支援情報モニター｜補助金・助成金・融資</div>
-    <div class="sync">LAST SYNC 2026-10-02 15:28 JST</div>
+    <div class="sync">LAST SYNC 2026-10-02 19:14 JST</div>
   </div>
 </header>
 
@@ -111,22 +111,89 @@
   <div class="kpis" id="kpis">
     <div class="kpi active" data-filter="all" style="--rc:var(--ink)">
       <div class="label">本日の新着 10/2（金）</div>
-      <div class="num">0<small> 件</small></div>
+      <div class="num">8<small> 件</small></div>
     </div>
     <div class="kpi" data-filter="全国" style="--rc:#17425F">
-              <div class="label">全国</div><div class="num">0</div></div><div class="kpi" data-filter="愛知県" style="--rc:#B4452C">
-              <div class="label">愛知</div><div class="num">0</div></div><div class="kpi" data-filter="岐阜県" style="--rc:#4A6B3A">
+              <div class="label">全国</div><div class="num">3</div></div><div class="kpi" data-filter="愛知県" style="--rc:#B4452C">
+              <div class="label">愛知</div><div class="num">4</div></div><div class="kpi" data-filter="岐阜県" style="--rc:#4A6B3A">
               <div class="label">岐阜</div><div class="num">0</div></div><div class="kpi" data-filter="静岡県" style="--rc:#2E6E8E">
               <div class="label">静岡</div><div class="num">0</div></div><div class="kpi" data-filter="三重県" style="--rc:#7A5C99">
-              <div class="label">三重</div><div class="num">0</div></div>
+              <div class="label">三重</div><div class="num">1</div></div>
   </div>
 
   <div class="panel">
     <div class="panel-head">
-      <h2>本日の新着トピック</h2><span class="badge-new">NEW 0</span>
+      <h2>本日の新着トピック</h2><span class="badge-new">NEW 8</span>
       <input class="search" id="searchBox" type="search" placeholder="キーワード検索…">
     </div>
-    <p class="empty">本日の対象地域の新着はありませんでした。</p>
+    
+    <table>
+      <thead><tr><th>地域</th><th>種別</th><th>案件名</th><th>締切まで</th></tr></thead>
+      <tbody id="todayBody">
+        <tr data-region="全国">
+          <td><span class="r-tag" style="--rc:#17425F">全国</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/193182.html">補助金・助成金：「IP360 -Toward 20 Trillion Yen-」</a>
+            <span class="t-org">経済産業省｜日本発コンテンツの海外売上を2033年までに20兆円とする目標の実現に向けて、複数年の支援を含めた大規模・長期・戦略的な…　<a class="mini-src" href="https://www.meti.go.jp/policy/mono_info_service/contents/menu_contents.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="申請期限："><span class="dl none">期日あり</span><span class="dl-date">申請期限：</span></td>
+        </tr>
+
+        <tr data-region="全国">
+          <td><span class="r-tag" style="--rc:#17425F">全国</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/193110.html">補助金・助成金：「水力発電導入促進支援事業費補助金（事業性評価支援事業　追加公募）」</a>
+            <span class="t-org">経済産業省｜中小水力発電への事業者等の参入を促進するため、地方公共団体又は民間事業者等が行う地点選定・事業計画段階におけるポテンシャ…　<a class="mini-src" href="https://suiryokuhojo.nef.or.jp/jigyouseihyouka-tsuika/" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="申込期限：各開催日の前日17：00"><span class="dl none">期日あり</span><span class="dl-date">申込期限：各開催日の前日17：00</span></td>
+        </tr>
+
+        <tr data-region="全国">
+          <td><span class="r-tag" style="--rc:#17425F">全国</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/193173.html">補助金・助成金：「物流拠点機能強化支援事業費補助金（非常用電源設備の導入補助事業及び災害時の支援物資輸送体制構 築促進事業）の二次公募開始」</a>
+            <span class="t-org">国土交通省｜物流施設における非常用電源設備の導入支援及び官民が連携して行う支援物資輸送訓練を通じ、災害時のサプライチェーンの確保や災…　<a class="mini-src" href="https://www.mlit.go.jp/report/press/tokatsu03_hh_000019.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="公募期間：令和8年10月1日（木）～11月30日（月）まで（必着）"><span class="dl safe">残り 59日</span><span class="dl-date">R8.10.1 〜 R8.11.30</span></td>
+        </tr>
+
+        <tr data-region="愛知県">
+          <td><span class="r-tag" style="--rc:#B4452C">愛知</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/193127.html">【新城市】補助金・助成金：「新城市中小事業者物価高騰対策支援事業補助金」</a>
+            <span class="t-org">新城市｜物価高騰等の影響で資金繰りの厳しい中小企業に対して融資に係る一部を補助することで、借入負担の軽減及び、経営の安定と向上を…　<a class="mini-src" href="https://www.city.shinshiro.lg.jp/sangyo/sangyo/shien/jigyomuke-yushi/bukkadaka.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="申請受付期間：令和8年10月1日から令和9年3月1日まで"><span class="dl safe">残り 150日</span><span class="dl-date">R8.10.1 〜 R9.3.1</span></td>
+        </tr>
+
+        <tr data-region="愛知県">
+          <td><span class="r-tag" style="--rc:#B4452C">愛知</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/193141.html">【蒲郡市】補助金・助成金：「【介護事業者向け】蒲郡市介護事業所物価高騰対策交付金のご案内」</a>
+            <span class="t-org">蒲郡市｜蒲郡市内に事業所を有する介護サービス等を提供する事業者に対して、エネルギー・食料品価格等の物価高騰の影響を軽減するため、…　<a class="mini-src" href="https://www.city.gamagori.lg.jp/unit/choju/kaigo-jigyousho-koufukin.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="申請期間：令和8年10月1日から令和9年1月31日まで"><span class="dl safe">残り 121日</span><span class="dl-date">R8.10.1 〜 R9.1.31</span></td>
+        </tr>
+
+        <tr data-region="愛知県">
+          <td><span class="r-tag" style="--rc:#B4452C">愛知</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/193118.html">【蒲郡市】補助金・助成金：【障害福祉サービス事業所向け】蒲郡市福祉事業所物価高騰対策交付金のご案内</a>
+            <span class="t-org">蒲郡市｜蒲郡市内に事業所を有する障害福祉サービス等を提供する事業者に対して、エネルギー・食料品価格等の物価高騰の影響を軽減するた…　<a class="mini-src" href="https://www.city.gamagori.lg.jp/unit/fukushi/fukushijigyosho-bukkakoto.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="申請期間：令和8年10月1日から令和9年1月31日まで"><span class="dl safe">残り 121日</span><span class="dl-date">R8.10.1 〜 R9.1.31</span></td>
+        </tr>
+
+        <tr data-region="愛知県">
+          <td><span class="r-tag" style="--rc:#B4452C">愛知</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/193120.html">【豊田市】補助金・助成金：「豊田市「経済環境適応資金・サポート資金【経済対策特別】」（環特）信用保証料補助制度」</a>
+            <span class="t-org">豊田市｜愛知県融資制度の「経済環境適応資金・サポート資金【経済対策特別】」（略称：環特）を借り入れた中小企業者に対し、信用保証料…　<a class="mini-src" href="https://www.city.toyota.aichi.jp/sangyo/sogyokeiei/1076532/1073358/1080324.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="受付期間：令和8年10月1日（木曜日）～令和9年3月31日（水曜日）"><span class="dl safe">残り 180日</span><span class="dl-date">R8.10.1 〜 R9.3.31</span></td>
+        </tr>
+
+        <tr data-region="三重県">
+          <td><span class="r-tag" style="--rc:#7A5C99">三重</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/193190.html">【南伊勢町】補助金・助成金：「ふるさとものづくり支援事業補助金のおしらせ」</a>
+            <span class="t-org">南伊勢町｜一般財団法人地域総合整備財団が実施する「ふるさとものづくり支援事業」を利用する場合、本町を通じて申請を行う必要があります…　<a class="mini-src" href="https://www.town.minamiise.lg.jp/admin/shoshiki/machizukuri/gy_sonotaoshirase/7273.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="申請期間：令和8年10月30日（金曜日）【厳守】"><span class="dl soon">残り 28日</span><span class="dl-date">〜 R8.10.30</span></td>
+        </tr></tbody>
+    </table>
   </div>
 
   <div class="panel">
@@ -350,7 +417,7 @@
 
   // 死活監視：最終更新から27時間を超えていたら警告バナーを表示
   (function() {
-    const lastSync = new Date('2026-10-02T15:28:22+09:00');
+    const lastSync = new Date('2026-10-02T19:14:16+09:00');
     const hours = (Date.now() - lastSync.getTime()) / 3600000;
     if (hours > 27) {
       document.getElementById('staleHours').textContent = Math.floor(hours);
