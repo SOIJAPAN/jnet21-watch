@@ -96,7 +96,7 @@
 <header class="topbar">
   <div class="topbar-inner">
     <div class="logo">支援情報モニター｜補助金・助成金・融資</div>
-    <div class="sync">LAST SYNC 2026-10-06 16:01 JST</div>
+    <div class="sync">LAST SYNC 2026-10-06 19:57 JST</div>
   </div>
 </header>
 
@@ -111,11 +111,11 @@
   <div class="kpis" id="kpis">
     <div class="kpi active" data-filter="all" style="--rc:var(--ink)">
       <div class="label">本日の新着 10/6（火）</div>
-      <div class="num">0<small> 件</small></div>
+      <div class="num">2<small> 件</small></div>
     </div>
     <div class="kpi" data-filter="全国" style="--rc:#17425F">
-              <div class="label">全国</div><div class="num">0</div></div><div class="kpi" data-filter="愛知県" style="--rc:#B4452C">
-              <div class="label">愛知</div><div class="num">0</div></div><div class="kpi" data-filter="岐阜県" style="--rc:#4A6B3A">
+              <div class="label">全国</div><div class="num">1</div></div><div class="kpi" data-filter="愛知県" style="--rc:#B4452C">
+              <div class="label">愛知</div><div class="num">1</div></div><div class="kpi" data-filter="岐阜県" style="--rc:#4A6B3A">
               <div class="label">岐阜</div><div class="num">0</div></div><div class="kpi" data-filter="静岡県" style="--rc:#2E6E8E">
               <div class="label">静岡</div><div class="num">0</div></div><div class="kpi" data-filter="三重県" style="--rc:#7A5C99">
               <div class="label">三重</div><div class="num">0</div></div>
@@ -123,10 +123,29 @@
 
   <div class="panel">
     <div class="panel-head">
-      <h2>本日の新着トピック</h2><span class="badge-new">NEW 0</span>
+      <h2>本日の新着トピック</h2><span class="badge-new">NEW 2</span>
       <input class="search" id="searchBox" type="search" placeholder="キーワード検索…">
     </div>
-    <p class="empty">本日の対象地域の新着はありませんでした。</p>
+    
+    <table>
+      <thead><tr><th>地域</th><th>種別</th><th>案件名</th><th>締切まで</th></tr></thead>
+      <tbody id="todayBody">
+        <tr data-region="全国">
+          <td><span class="r-tag" style="--rc:#17425F">全国</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/193467.html">補助金・助成金：「令和8年度「地域の公共交通×脱炭素化移行促進事業」の三次公募について」</a>
+            <span class="t-org">環境省（執行団体：一般社団法人地域循環共生社会連携協会）｜二酸化炭素排出抑制対策事業費等補助金（地域の公共交通×脱炭素化移行促進事業）のうち、「交通システムの省CO2化に向けた設…　<a class="mini-src" href="https://www.env.go.jp/press/press_05648.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="募集期間：令和8年10月5日（月）から同年12月23日（水）正午まで（必着）"><span class="dl safe">残り 78日</span><span class="dl-date">R8.10.5 〜 R8.12.23</span></td>
+        </tr>
+
+        <tr data-region="愛知県">
+          <td><span class="r-tag" style="--rc:#B4452C">愛知</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/193452.html">【豊田市】補助金・助成金：「6次産業化推進補助金」</a>
+            <span class="t-org">豊田市｜6次産業化に取り組む農業者を応援します！ 募集期間：令和8年12月1日（火曜日）～令和9年1月29日（金曜日）　<a class="mini-src" href="https://www.city.toyota.aichi.jp/sangyo/nogyo/1073315/nougyou/1073399/1063555.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="募集期間：令和8年12月1日（火曜日）～令和9年1月29日（金曜日）"><span class="dl safe">残り 115日</span><span class="dl-date">R8.12.1 〜 R9.1.29</span></td>
+        </tr></tbody>
+    </table>
   </div>
 
   <div class="panel">
@@ -406,7 +425,7 @@
 
   // 死活監視：最終更新から27時間を超えていたら警告バナーを表示
   (function() {
-    const lastSync = new Date('2026-10-06T16:01:15+09:00');
+    const lastSync = new Date('2026-10-06T19:57:55+09:00');
     const hours = (Date.now() - lastSync.getTime()) / 3600000;
     if (hours > 27) {
       document.getElementById('staleHours').textContent = Math.floor(hours);
