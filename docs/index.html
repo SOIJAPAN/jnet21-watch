@@ -96,7 +96,7 @@
 <header class="topbar">
   <div class="topbar-inner">
     <div class="logo">支援情報モニター｜補助金・助成金・融資</div>
-    <div class="sync">LAST SYNC 2026-11-02 15:59 JST</div>
+    <div class="sync">LAST SYNC 2026-11-02 20:56 JST</div>
   </div>
 </header>
 
@@ -111,22 +111,57 @@
   <div class="kpis" id="kpis">
     <div class="kpi active" data-filter="all" style="--rc:var(--ink)">
       <div class="label">本日の新着 11/2（月）</div>
-      <div class="num">0<small> 件</small></div>
+      <div class="num">4<small> 件</small></div>
     </div>
     <div class="kpi" data-filter="全国" style="--rc:#17425F">
               <div class="label">全国</div><div class="num">0</div></div><div class="kpi" data-filter="愛知県" style="--rc:#B4452C">
-              <div class="label">愛知</div><div class="num">0</div></div><div class="kpi" data-filter="岐阜県" style="--rc:#4A6B3A">
+              <div class="label">愛知</div><div class="num">2</div></div><div class="kpi" data-filter="岐阜県" style="--rc:#4A6B3A">
               <div class="label">岐阜</div><div class="num">0</div></div><div class="kpi" data-filter="静岡県" style="--rc:#2E6E8E">
-              <div class="label">静岡</div><div class="num">0</div></div><div class="kpi" data-filter="三重県" style="--rc:#7A5C99">
-              <div class="label">三重</div><div class="num">0</div></div>
+              <div class="label">静岡</div><div class="num">1</div></div><div class="kpi" data-filter="三重県" style="--rc:#7A5C99">
+              <div class="label">三重</div><div class="num">1</div></div>
   </div>
 
   <div class="panel">
     <div class="panel-head">
-      <h2>本日の新着トピック</h2><span class="badge-new">NEW 0</span>
+      <h2>本日の新着トピック</h2><span class="badge-new">NEW 4</span>
       <input class="search" id="searchBox" type="search" placeholder="キーワード検索…">
     </div>
-    <p class="empty">本日の対象地域の新着はありませんでした。</p>
+    
+    <table>
+      <thead><tr><th>地域</th><th>種別</th><th>案件名</th><th>締切まで</th></tr></thead>
+      <tbody id="todayBody">
+        <tr data-region="愛知県">
+          <td><span class="r-tag" style="--rc:#B4452C">愛知</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/195346.html">【小牧市】補助金・助成金：「創業支援利子補給補助金」</a>
+            <span class="t-org">小牧市｜株式会社日本政策金融公庫及び小牧市と小規模企業等振興資金に関する覚書を締結している取扱金融機関から創業のために必要な資金…　<a class="mini-src" href="https://www.city.komaki.aichi.jp/admin/jigyousha/keiei/45595.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="申請期間：令和9年1月6日（水曜日）から令和9年1月29日（金曜日）まで"><span class="dl safe">残り 88日</span><span class="dl-date">R9.1.6 〜 R9.1.29</span></td>
+        </tr>
+
+        <tr data-region="愛知県">
+          <td><span class="r-tag" style="--rc:#B4452C">愛知</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/195345.html">【小牧市】補助金・助成金：「小牧市健康経営優良法人認定取得支援補助金について」</a>
+            <span class="t-org">小牧市｜小牧市内事業所における健康経営の普及の一環として、経済産業省が行っている「健康経営優良法人認定」の取得申請料の一部を補助…　<a class="mini-src" href="https://www.city.komaki.aichi.jp/admin/jigyousha/keiei/49187.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="申請期限：令和9年3月31日まで（健康経営優良法人の認定申請料の支払い時期から申請をした年度の末日まで）"><span class="dl safe">残り 149日</span><span class="dl-date">〜 R9.3.31</span></td>
+        </tr>
+
+        <tr data-region="静岡県">
+          <td><span class="r-tag" style="--rc:#2E6E8E">静岡</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/195262.html">【三島市】補助金・助成金：「三島市小口資金利子補給緊急支援補助金」</a>
+            <span class="t-org">三島市｜物価高騰などの影響を受ける中小企業者を支援するため、三島市小口資金の融資を受けた事業者に対し、支払った利息の一部を補助し…　<a class="mini-src" href="https://www.city.mishima.shizuoka.jp/page/37717.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell"><span class="dl none">—</span><span class="dl-date">期日は詳細参照</span></td>
+        </tr>
+
+        <tr data-region="三重県">
+          <td><span class="r-tag" style="--rc:#7A5C99">三重</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/195263.html">【鈴鹿市】補助金・助成金：「令和8年度　物価高騰対策土地改良区等支援事業費補助金」</a>
+            <span class="t-org">鈴鹿市｜物価高騰の影響を受けている土地改良区、水利組合等の団体を支援するため、国の「物価高騰対応重点支援地方創生臨時交付金」を活…　<a class="mini-src" href="https://www.city.suzuka.lg.jp/sangyo/nousui/1003361/1017700.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="申請期限：令和8年12月1日（火曜日）から令和8年12月28日（月曜日）※消印有効"><span class="dl safe">残り 56日</span><span class="dl-date">R8.12.1 〜 R8.12.28</span></td>
+        </tr></tbody>
+    </table>
   </div>
 
   <div class="panel">
@@ -254,7 +289,7 @@
 
   // 死活監視：最終更新から27時間を超えていたら警告バナーを表示
   (function() {
-    const lastSync = new Date('2026-11-02T15:59:05+09:00');
+    const lastSync = new Date('2026-11-02T20:56:11+09:00');
     const hours = (Date.now() - lastSync.getTime()) / 3600000;
     if (hours > 27) {
       document.getElementById('staleHours').textContent = Math.floor(hours);
