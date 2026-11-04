@@ -96,7 +96,7 @@
 <header class="topbar">
   <div class="topbar-inner">
     <div class="logo">支援情報モニター｜補助金・助成金・融資</div>
-    <div class="sync">LAST SYNC 2026-11-04 16:05 JST</div>
+    <div class="sync">LAST SYNC 2026-11-04 20:47 JST</div>
   </div>
 </header>
 
@@ -111,10 +111,10 @@
   <div class="kpis" id="kpis">
     <div class="kpi active" data-filter="all" style="--rc:var(--ink)">
       <div class="label">本日の新着 11/4（水）</div>
-      <div class="num">0<small> 件</small></div>
+      <div class="num">6<small> 件</small></div>
     </div>
     <div class="kpi" data-filter="全国" style="--rc:#17425F">
-              <div class="label">全国</div><div class="num">0</div></div><div class="kpi" data-filter="愛知県" style="--rc:#B4452C">
+              <div class="label">全国</div><div class="num">6</div></div><div class="kpi" data-filter="愛知県" style="--rc:#B4452C">
               <div class="label">愛知</div><div class="num">0</div></div><div class="kpi" data-filter="岐阜県" style="--rc:#4A6B3A">
               <div class="label">岐阜</div><div class="num">0</div></div><div class="kpi" data-filter="静岡県" style="--rc:#2E6E8E">
               <div class="label">静岡</div><div class="num">0</div></div><div class="kpi" data-filter="三重県" style="--rc:#7A5C99">
@@ -123,10 +123,61 @@
 
   <div class="panel">
     <div class="panel-head">
-      <h2>本日の新着トピック</h2><span class="badge-new">NEW 0</span>
+      <h2>本日の新着トピック</h2><span class="badge-new">NEW 6</span>
       <input class="search" id="searchBox" type="search" placeholder="キーワード検索…">
     </div>
-    <p class="empty">本日の対象地域の新着はありませんでした。</p>
+    
+    <table>
+      <thead><tr><th>地域</th><th>種別</th><th>案件名</th><th>締切まで</th></tr></thead>
+      <tbody id="todayBody">
+        <tr data-region="全国">
+          <td><span class="r-tag" style="--rc:#17425F">全国</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/195403.html">補助金・助成金：「デジタル化・AI導入補助金2026「インボイス枠（インボイス対応類型）」※7次締切分」</a>
+            <span class="t-org">独立行政法人中小企業基盤整備機構｜中小企業・小規模事業者等のみなさまが、インボイス制度に対応した「会計」・「受発注」・「決済」の機能を有するソフトウェア、…　<a class="mini-src" href="https://www.aipa.jp/" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="交付申請期間：2026年3月30日（月）～"><span class="dl none">受付終了</span><span class="dl-date">〜 R8.3.30</span></td>
+        </tr>
+
+        <tr data-region="全国">
+          <td><span class="r-tag" style="--rc:#17425F">全国</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/195405.html">補助金・助成金：「デジタル化・AI導入補助金2026「インボイス枠（電子取引類型）」※7次締切分」</a>
+            <span class="t-org">独立行政法人中小企業基盤整備機構｜取引関係における発注者が、インボイス制度対応のITツール（受発注ソフト）を導入し、当該取引関係における受注者である中小企…　<a class="mini-src" href="https://www.aipa.jp/" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="交付申請期間：2026年3月30日（月）～"><span class="dl none">受付終了</span><span class="dl-date">〜 R8.3.30</span></td>
+        </tr>
+
+        <tr data-region="全国">
+          <td><span class="r-tag" style="--rc:#17425F">全国</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/195406.html">補助金・助成金：「デジタル化・AI導入補助金2026「セキュリティ対策推進枠」※7次締切分」</a>
+            <span class="t-org">独立行政法人中小企業基盤整備機構｜中小企業・小規模事業者等のみなさまが、サイバーセキュリティ対策を強化するためのITツールを導入するための経費の一部を補助…　<a class="mini-src" href="https://www.aipa.jp/" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="交付申請期間：2026年3月30日（月）～"><span class="dl none">受付終了</span><span class="dl-date">〜 R8.3.30</span></td>
+        </tr>
+
+        <tr data-region="全国">
+          <td><span class="r-tag" style="--rc:#17425F">全国</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/195407.html">補助金・助成金：「デジタル化・AI導入補助金2026「複数者連携デジタル化・AI導入枠」※4次締切分」</a>
+            <span class="t-org">独立行政法人中小企業基盤整備機構｜サプライチェーンや商業集積地の複数の中小企業・小規模事業者等が連携してITツールを導入することにより、面的なデジタル化、…　<a class="mini-src" href="https://www.aipa.jp/" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="交付申請期間：2026年3月30日（月）～"><span class="dl none">受付終了</span><span class="dl-date">〜 R8.3.30</span></td>
+        </tr>
+
+        <tr data-region="全国">
+          <td><span class="r-tag" style="--rc:#17425F">全国</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/195402.html">補助金・助成金：「デジタル化・AI導入補助金2026「通常枠」※7次締切分」</a>
+            <span class="t-org">独立行政法人中小企業基盤整備機構｜中小企業・小規模事業者等のみなさまが自社の課題やニーズに合ったITツールを導入するための経費の一部を補助することで、みな…　<a class="mini-src" href="https://www.aipa.jp/" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="交付申請期間：2026年3月30日（月）～"><span class="dl none">受付終了</span><span class="dl-date">〜 R8.3.30</span></td>
+        </tr>
+
+        <tr data-region="全国">
+          <td><span class="r-tag" style="--rc:#17425F">全国</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/195460.html">補助金・助成金：「新事業進出・ものづくり商業サービス補助金」</a>
+            <span class="t-org">独立行政法人中小企業基盤整備機構｜【新事業進出・ものづくり商業サービス補助金とは】 中小企業等が行う、技術的革新性のある製品・サービスの開発や既存事業とは…　<a class="mini-src" href="https://www.aipa.jp/" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell"><span class="dl none">—</span><span class="dl-date">期日は詳細参照</span></td>
+        </tr></tbody>
+    </table>
   </div>
 
   <div class="panel">
@@ -262,7 +313,7 @@
 
   // 死活監視：最終更新から27時間を超えていたら警告バナーを表示
   (function() {
-    const lastSync = new Date('2026-11-04T16:05:49+09:00');
+    const lastSync = new Date('2026-11-04T20:47:27+09:00');
     const hours = (Date.now() - lastSync.getTime()) / 3600000;
     if (hours > 27) {
       document.getElementById('staleHours').textContent = Math.floor(hours);
