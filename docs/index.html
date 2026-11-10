@@ -96,7 +96,7 @@
 <header class="topbar">
   <div class="topbar-inner">
     <div class="logo">支援情報モニター｜補助金・助成金・融資</div>
-    <div class="sync">LAST SYNC 2026-11-10 16:53 JST</div>
+    <div class="sync">LAST SYNC 2026-11-10 21:00 JST</div>
   </div>
 </header>
 
@@ -111,22 +111,49 @@
   <div class="kpis" id="kpis">
     <div class="kpi active" data-filter="all" style="--rc:var(--ink)">
       <div class="label">本日の新着 11/10（火）</div>
-      <div class="num">0<small> 件</small></div>
+      <div class="num">3<small> 件</small></div>
     </div>
     <div class="kpi" data-filter="全国" style="--rc:#17425F">
               <div class="label">全国</div><div class="num">0</div></div><div class="kpi" data-filter="愛知県" style="--rc:#B4452C">
               <div class="label">愛知</div><div class="num">0</div></div><div class="kpi" data-filter="岐阜県" style="--rc:#4A6B3A">
               <div class="label">岐阜</div><div class="num">0</div></div><div class="kpi" data-filter="静岡県" style="--rc:#2E6E8E">
-              <div class="label">静岡</div><div class="num">0</div></div><div class="kpi" data-filter="三重県" style="--rc:#7A5C99">
-              <div class="label">三重</div><div class="num">0</div></div>
+              <div class="label">静岡</div><div class="num">2</div></div><div class="kpi" data-filter="三重県" style="--rc:#7A5C99">
+              <div class="label">三重</div><div class="num">1</div></div>
   </div>
 
   <div class="panel">
     <div class="panel-head">
-      <h2>本日の新着トピック</h2><span class="badge-new">NEW 0</span>
+      <h2>本日の新着トピック</h2><span class="badge-new">NEW 3</span>
       <input class="search" id="searchBox" type="search" placeholder="キーワード検索…">
     </div>
-    <p class="empty">本日の対象地域の新着はありませんでした。</p>
+    
+    <table>
+      <thead><tr><th>地域</th><th>種別</th><th>案件名</th><th>締切まで</th></tr></thead>
+      <tbody id="todayBody">
+        <tr data-region="静岡県">
+          <td><span class="r-tag" style="--rc:#2E6E8E">静岡</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/195867.html">【富士市】補助金・助成金：「富士市ものづくり構造転換等事業費補助金」の申請受付開始について</a>
+            <span class="t-org">富士市｜富士市では、エネルギーやナフサ等の原燃料の供給不安や価格高騰など経営に大きく影響を受けた市内事業者等の持続的な操業に向け…　<a class="mini-src" href="https://www.city.fuji.shizuoka.jp/1035050000/p007770.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="申請期限：令和8年12月25日（金曜日）まで"><span class="dl soon">残り 45日</span><span class="dl-date">〜 R8.12.25</span></td>
+        </tr>
+
+        <tr data-region="静岡県">
+          <td><span class="r-tag" style="--rc:#2E6E8E">静岡</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/195832.html">【焼津市】補助金・助成金：「観光地域高付加価値化整備事業費補助金」</a>
+            <span class="t-org">焼津市｜焼津市は、静岡県が新たに定めた観光地域高付加価値化整備事業費補助金交付要綱に基づき、2027年度に「焼津市周遊型高付加価…　<a class="mini-src" href="https://www.city.yaizu.lg.jp/business/kigyo-shien/shien-hojo/koufukakati.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="申請期限：2026年12月14日（月曜日）午後5時"><span class="dl soon">残り 34日</span><span class="dl-date">〜 R8.12.14</span></td>
+        </tr>
+
+        <tr data-region="三重県">
+          <td><span class="r-tag" style="--rc:#7A5C99">三重</span></td>
+          <td><span class="k-tag">補助金・助成金</span></td>
+          <td class="t-title"><a href="articles/195835.html">【志摩市】補助金・助成金：「獣害対策事業補助金について」</a>
+            <span class="t-org">志摩市｜イノシシやシカなどの野生鳥獣による農作物被害を防止する目的で、市内の農地に設置する防護柵（電気柵、防護網含む）、追払い機…　<a class="mini-src" href="https://www.city.shima.mie.jp/kakuka/suisannourin/norinka/nourinkaoshirase/7565.html" target="_blank" rel="noopener">公式↗</a></span></td>
+          <td class="dcell" title="募集期間：予算額に達するまで"><span class="dl none">期日あり</span><span class="dl-date">募集期間：予算額に達するまで</span></td>
+        </tr></tbody>
+    </table>
   </div>
 
   <div class="panel">
@@ -326,7 +353,7 @@
 
   // 死活監視：最終更新から27時間を超えていたら警告バナーを表示
   (function() {
-    const lastSync = new Date('2026-11-10T16:53:49+09:00');
+    const lastSync = new Date('2026-11-10T21:00:00+09:00');
     const hours = (Date.now() - lastSync.getTime()) / 3600000;
     if (hours > 27) {
       document.getElementById('staleHours').textContent = Math.floor(hours);
